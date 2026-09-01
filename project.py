@@ -11,7 +11,6 @@ import datetime
 import collections
 import sys
 
-
 ##### Project starts here #####
 
 class EntryLog:
