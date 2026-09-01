@@ -30,13 +30,6 @@ class EntryLog:
     def is_connection_attempt(self):
         return self.event_type == "connection_attempt"
 
-
-entry1 = EntryLog(20, "203.0.113.45", "failed_login", 51422, None)
-entry2 = EntryLog(30, "255.255.255.01", "success_login", 4545, None)
-
-print(f"Event1: {entry1.ip}:{entry1.event_type} ({entry1.is_failed_login})")
-print(f"Event2: {entry2.ip}:{entry2.event_type} ({entry2.is_failed_login})")
-
 #{"timestamp": some_datetime, "ip": "203.0.113.45", "event_type": "failed_login", "port": 51422, "user": None}
 
 def main():
