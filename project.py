@@ -10,16 +10,16 @@ import argparse
 import datetime
 import collections
 import sys
+from dataclasses import dataclass
 
 ##### Project starts here #####
-
+@dataclass
 class EntryLog:
-    def __init__(self, timestamp, ip, event_type, port, user):
-        self.timestamp = timestamp
-        self.ip = ip
-        self.event_type = event_type
-        self.port = port
-        self.user = user
+    imestamp: datetime
+    ip: str
+    event_type: str
+    port: int
+    user: str
 
     def is_failed_login(self):
         return self.event_type == "failed_login"
