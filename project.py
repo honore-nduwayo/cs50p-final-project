@@ -12,25 +12,33 @@ import collections
 import sys
 from dataclasses import dataclass
 
-##### Project starts here #####
-@dataclass
-class EntryLog:
-    imestamp: datetime
-    ip: str
-    event_type: str
-    port: int
-    user: str
-
-    def is_failed_login(self):
-        return self.event_type == "failed_login"
-    
-    def is_success_login(self):
-        return self.event_type == "success_login"
-    
-    def is_connection_attempt(self):
-        return self.event_type == "connection_attempt"
-
 #{"timestamp": some_datetime, "ip": "203.0.113.45", "event_type": "failed_login", "port": 51422, "user": None}
+
+#2026-09-01T12:33:39 webserver01 sshd[5369]: Failed password for invalid user root from 203.0.113.45 port 57478 ssh2
+
+"""
+Write a snippet using re.search() that pulls out:
+
+timestamp text → 2026-09-01T12:33:39
+username → root
+IP → 203.0.113.45
+port → 57478
+"""
+
+# Use reference of  stuck overflow for the regex
+# this id for failed logins
+
+line =  "2026-09-01T12:33:39 webserver01 sshd[5369]: Failed password for invalid user root from 203.0.113.45 port 57478 ssh2"
+line1= "2026-09-01T09:32:07 webserver01 sshd[8362]: Accepted password for admin from 192.168.1.22 port 54061 ssh2"
+line2 = "2026-09-01T10:41:35 webserver01 sshd[10830]: Accepted password for svc_web from 10.0.0.8 port 52144 ssh2"
+
+#### Reg Exes for diffrent incidents, by the help of stuck overflow
+
+FAILED   = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*\buser\s+(\w+)\s+from\b\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s+port\s+(\d+)"
+ACCEPTED = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*\bfor\s+(\w+)\s+from\b\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s+port\s+(\d+)"
+ATTEMPT  = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*\bfrom\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s+to\s+port\s+(\d+)"
+
+
 
 def main():
     ...
