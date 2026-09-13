@@ -127,23 +127,22 @@ Anything specific among these you want to run right now and check the output of?
 
 ## How to run it
 
-First make a test log file if you do not have one already.
+1. First make a test log file if you do not have one already.
 
-```
+
 python3 generate_test_data.py --output sample.log --lines 200
-```
 
-Then run the analyzer on it.
 
-```
+2. Then run the analyzer on it.
+
+
 python3 project.py sample.log
-```
 
-You can also change the settings if you want.
 
-```
+3. You can also change the settings if you want.
+
 python3 project.py sample.log --failed-login-threshold 4 --port-scan-threshold 5 --time-window 60 --output report.txt
-```
+
 
 `failed-login-threshold` is how many failed logins from one ip counts as brute force, default is 4.
 
@@ -153,11 +152,11 @@ python3 project.py sample.log --failed-login-threshold 4 --port-scan-threshold 5
 
 `output` lets you save the report to a file instead of just printing it in the terminal.
 
-To run the tests.
+4. To run the tests.
 
-```
+
 python3 -m pytest test_project.py -v
-```
+
 
 ## A few things I want to mention
 
