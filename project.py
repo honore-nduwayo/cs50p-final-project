@@ -7,11 +7,12 @@ Country: Burundi
 # Importing libraries/requirements
 import re
 import argparse
-import datetime
+#import datetime
+from datetime import datetime
 import collections
 import sys
 from dataclasses import dataclass
-import datetime
+#import datetime
 
 #{"timestamp": some_datetime, "ip": "203.0.113.45", "event_type": "failed_login", "port": 51422, "user": None}
 line =  "2026-09-01T12:33:39 webserver01 sshd[5369]: Failed password for invalid user root from 203.0.113.45 port 57478 ssh2"

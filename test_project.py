@@ -1,6 +1,5 @@
 import pytest
 from datetime import datetime
-
 from project import parse_log_line, calculate_severity, detect_brute_force
 
 

@@ -1,6 +1,32 @@
-Report Sample
+# Log Analyzer & Intrusion Detection Script
 
+#### Video Demo: <>
 
+#### Description:
+
+This is my CS50P final project. It is a command line tool that reads a server log file and tries to find signs of an attack, so a person does not have to scroll through thousands of lines by hand.
+
+Every time something happens on a server, like someone logging in or someone trying to log in and failing, it gets written as one line in a log file. On a busy server this can be thousands of lines in a single day. Somewhere inside all that text there might be real evidence that someone is attacking the server, but no human is going to read all of it line by line. That is the problem this program solves.
+
+The program looks for three things.
+
+1. Brute force attacks. This is when one IP address fails to log in many times in a short amount of time, like someone guessing passwords over and over.
+2. Port scans. This is when one IP address touches many different ports very fast, like someone checking every door on a house to see which one is unlocked.
+3. Unusual hour logins. This is when someone actually succeeds in logging in, but at a strange hour, like 3am. It is not proof of anything bad on its own, it is just something worth a second look.
+
+Once it finds these things it prints a report, sorted so the worst stuff shows up first.
+
+## How it works, roughly
+
+The program reads the log file one line at a time. Each line gets checked against three different patterns, one for a failed login, one for a successful login, and one for a generic connection attempt. If a line does not match any of the three, it just gets skipped, nothing breaks.
+
+Every line that does match turns into a small dictionary with the timestamp, the ip, what kind of event it was, the port, and the username if there is one. Once the whole file has been read this way, three separate functions go through that list looking for their own pattern. They group everything by ip address and check if enough suspicious stuff happened close together in time.
+
+Anything that gets flagged is called a finding. Each finding gets a severity, LOW, MEDIUM, HIGH or CRITICAL, depending on how bad it looks. All the findings get sorted worst first and turned into one readable report, which either prints straight to the terminal or gets saved to a file if you ask for that.
+
+Here is roughly what the report looks like once it runs.
+
+```
 ============================================================
  INTRUSION DETECTION REPORT
  Generated: 2026-09-01T09:42:11
@@ -11,33 +37,25 @@ SUMMARY
   Total findings: 4
   CRITICAL: 0   HIGH: 2   MEDIUM: 1   LOW: 1
 
-------------------------------------------------------------
 [HIGH] BRUTE-FORCE ATTACK
-------------------------------------------------------------
   IP Address     : 203.0.113.45
   Failed Attempts: 8  (threshold: 4)
   Targeted User  : root
-  Time Window    : 2026-09-01T08:12:03 → 2026-09-01T08:12:24
+  Time Window    : 2026-09-01T08:12:03 to 2026-09-01T08:12:24
 
-------------------------------------------------------------
 [HIGH] PORT SCAN
-------------------------------------------------------------
   IP Address     : 198.51.100.23
   Distinct Ports : 12  (threshold: 5)
   Ports Touched  : 22, 23, 25, 80, 443, 3389, ...
-  Time Window    : 2026-09-01T08:15:00 → 2026-09-01T08:15:14
+  Time Window    : 2026-09-01T08:15:00 to 2026-09-01T08:15:14
 
-------------------------------------------------------------
 [MEDIUM] BRUTE-FORCE ATTACK
-------------------------------------------------------------
   IP Address     : 203.0.113.99
   Failed Attempts: 5  (threshold: 4)
   Targeted User  : root
-  Time Window    : 2026-09-01T08:16:02 → 2026-09-01T08:16:09
+  Time Window    : 2026-09-01T08:16:02 to 2026-09-01T08:16:09
 
-------------------------------------------------------------
 [LOW] UNUSUAL-HOUR LOGIN
-------------------------------------------------------------
   IP Address     : 192.168.1.10
   User           : admin
   Timestamp      : 2026-09-01T03:24:00
@@ -45,127 +63,83 @@ SUMMARY
 ============================================================
  END OF REPORT
 ============================================================
+```
 
+## Files in this project
 
+`project.py` is the whole program. It has these functions inside it.
 
-Pseudocode for project.py (yours to implement)
-main()
+`main()` runs everything in order. It calls `get_args()` to read what the user typed, then `load_log_file()` to read the log, then all three detection functions, then it builds the report and either prints it or saves it depending on what the user asked for.
 
-Purpose: Orchestrates the whole program.
+`get_args()` sets up all the command line flags using argparse. The log file itself is required, everything else like the thresholds has a default value so you do not have to type them every time.
 
-Call get_args() to read command-line arguments.
-Call load_log_file(args.logfile) → get list of parsed entries.
-Call each detection function on the entries: detect_brute_force(), detect_port_scan(), detect_unusual_hours().
-Combine all findings into one list.
-Call generate_report(findings) → get report text.
-If args.output was given, call save_report(); otherwise print the report to console.
-Exit with code 0 if no critical findings, or a non-zero code if critical findings exist (nice touch for scripting/automation use).
-get_args()
+`parse_log_line(line)` takes one single line of text and turns it into a dictionary, or returns None if the line does not match anything we know about. This is the function that uses regex to actually pull the timestamp, ip, user and port out of the raw text.
 
-Purpose: Define and parse CLI arguments.
-Returns: parsed arguments object.
-Logic:
+`load_log_file(filepath)` opens the file and calls `parse_log_line()` on every line, collecting all the ones that worked into one big list.
 
-Create an argument parser with a description.
-Add required positional argument: logfile (path to the log file to analyze).
-Add optional argument --failed-login-threshold (int, default 4) — how many failed logins from one IP within the time window counts as brute force.
-Add optional argument --port-scan-threshold (int, default 5) — how many distinct ports from one IP within the time window counts as a scan.
-Add optional argument --time-window (int, seconds, default 60) — the sliding window used for both detections.
-Add optional argument --output (path, default None) — if given, save report to this file instead of just printing.
-Return the parsed arguments.
-parse_log_line(line)
+`detect_brute_force(entries, threshold, time_window_seconds)` looks for ip addresses with too many failed logins close together in time.
 
-Purpose: Convert one raw log line into a structured record, or None if it doesn't match a known pattern. This is your core regex/string-parsing function — a great one to unit test.
-Input: one string (a single log line).
-Returns: a dictionary like {"timestamp": <datetime>, "ip": <str>, "event_type": <str>, "port": <int or None>, "user": <str or None>}, or None.
-Logic:
+`detect_port_scan(entries, threshold, time_window_seconds)` looks for ip addresses touching too many different ports close together in time.
 
-Try to match the line against a "Failed password" pattern → extract timestamp, username, IP, port. If matched, set event_type = "failed_login".
-Else try to match against an "Accepted password" pattern → same fields, event_type = "success_login".
-Else try to match against a "Connection attempt" pattern → extract timestamp, IP, port only (no username). event_type = "connection_attempt".
-If none match, return None (skip malformed/unknown lines).
-Convert the extracted timestamp string into an actual datetime object before returning.
-load_log_file(filepath)
+`detect_unusual_hours(entries, normal_start_hour, normal_end_hour)` looks for successful logins that happened outside of normal working hours.
 
-Purpose: Read the whole file and parse every line.
-Input: file path string.
-Returns: list of parsed entry dictionaries (skipping any lines that failed to parse).
-Logic:
+`calculate_severity(finding)` looks at one finding and decides if it is LOW, MEDIUM, HIGH or CRITICAL based on how big the numbers are.
 
-Open the file for reading.
-For each line, call parse_log_line().
-If the result isn't None, append it to a results list.
-Optionally, keep a count of skipped/unparseable lines and print a warning at the end if any were skipped.
-Return the results list.
-detect_brute_force(entries, threshold, time_window_seconds)
+`generate_report(findings)` takes the whole list of findings, sorts them worst first, and turns them into the readable text report shown above.
 
-Purpose: Flag IPs with too many failed logins in a short window. Good candidate for unit testing with hand-crafted entry lists.
-Input: list of parsed entries, threshold int, time window int.
-Returns: list of finding dictionaries.
-Logic:
+`save_report(report_text, output_path)` just writes the report text out to a file if the user asked for that.
 
-Filter entries to only those where event_type == "failed_login".
-Group these by IP address (a dictionary mapping IP → list of timestamps).
-For each IP's list of timestamps, sort them chronologically.
-Use a sliding-window approach: for each timestamp, count how many other timestamps from the same IP fall within time_window_seconds after it.
-If that count reaches or exceeds threshold, flag this IP as a brute-force finding — record IP, total failed attempts, first and last timestamp in the burst.
-Avoid flagging the same IP multiple times for overlapping windows — once flagged, move to the next IP.
-Return the list of findings.
-detect_port_scan(entries, threshold, time_window_seconds)
+`test_project.py` has the pytest tests. I tested `parse_log_line`, `calculate_severity` and `detect_brute_force`, since those three do not need any files or setup to test, you can just hand them made up data and check what comes back.
 
-Purpose: Flag IPs that touch many distinct ports in a short window.
-Input/Returns: same shape as above.
-Logic:
+`generate_test_data.py` is a script I wrote to make a fake log file called sample.log, with some normal traffic and some attacks mixed in on purpose, so I would have something real to test the program against while I was building it. It is not part of the actual graded project, just a helper.
 
-Filter entries to event_type == "connection_attempt".
-Group by IP → list of (timestamp, port) tuples.
-Sort each IP's list by timestamp.
-Using a sliding time window, count the number of distinct ports touched by that IP within any time_window_seconds span.
-If distinct port count reaches or exceeds threshold, flag as a port-scan finding — record IP, list of ports involved, first/last timestamp.
-Return the list of findings.
-detect_unusual_hours(entries, normal_start_hour, normal_end_hour)
+`requirements.txt` only has pytest in it. Everything else the program uses, like re, argparse and datetime, is already built into python so there is nothing else to install.
 
-Purpose: Flag successful logins that happen outside normal hours (default suggestion: before 6am or after 10pm).
-Logic:
+## How to run it
 
-Filter entries to event_type == "success_login".
-For each, extract the hour from its timestamp.
-If the hour falls outside [normal_start_hour, normal_end_hour], flag it as an unusual-hours finding — record IP, user, timestamp.
-Return the list of findings.
-calculate_severity(finding)
+First make a test log file if you do not have one already.
 
-Purpose: Pure helper — assigns a severity label based on finding type and magnitude. Simple, very testable pure function.
-Input: one finding dictionary.
-Returns: a string, e.g. "LOW", "MEDIUM", "HIGH", "CRITICAL".
-Logic (example thresholds, tune as you like):
+```
+python3 generate_test_data.py --output sample.log --lines 200
+```
 
-If finding["type"] == "brute_force": attempts ≥ 15 → CRITICAL; ≥ 8 → HIGH; else MEDIUM.
-If finding["type"] == "port_scan": distinct ports ≥ 20 → CRITICAL; ≥ 10 → HIGH; else MEDIUM.
-If finding["type"] == "unusual_hours": always LOW (it's a soft signal, not a hard attack indicator).
-Return the resulting label.
-generate_report(findings)
+Then run the analyzer on it.
 
-Purpose: Turn the list of findings into a readable report string.
-Logic:
+```
+python3 project.py sample.log
+```
 
-If findings is empty, return a simple "No suspicious activity detected" message.
-Otherwise, call calculate_severity() on each finding and attach the label.
-Sort findings by severity (CRITICAL first, then HIGH, MEDIUM, LOW).
-Build a header summarizing total findings and counts per severity level.
-For each finding, format a readable line/block: type, IP, key details (attempt count / ports / timestamp), and severity.
-Join everything into one multi-line string and return it.
-save_report(report_text, output_path)
+You can also change the settings if you want.
 
-Purpose: Write the report string to a file.
-Logic:
+```
+python3 project.py sample.log --failed-login-threshold 4 --port-scan-threshold 5 --time-window 60 --output report.txt
+```
 
-Open output_path for writing.
-Write report_text to it.
-Close the file (or use a context manager).
-CS50P testing requirement — which functions to test in test_project.py
+`failed-login-threshold` is how many failed logins from one ip counts as brute force, default is 4.
 
-You need at least 3 functions besides main() tested. Best candidates, roughly by ease:
+`port-scan-threshold` is how many different ports counts as a scan, default is 5.
 
-parse_log_line() — feed it hand-written sample lines (one of each event type, plus one garbage line), assert the returned dict fields or None.
-calculate_severity() — feed it hand-built finding dicts, assert the returned label.
-detect_brute_force() — feed it a small hand-crafted list of entries (some clustered failed logins from one IP, some spread out), assert it correctly flags or doesn't flag.
+`time-window` is the number of seconds the program checks within, default is 60.
+
+`output` lets you save the report to a file instead of just printing it in the terminal.
+
+To run the tests.
+
+```
+python3 -m pytest test_project.py -v
+```
+
+## A few things I want to mention
+
+I only used the python standard library for the actual program, pytest is only used for testing, nothing else needed to be installed.
+
+I used plain dictionaries instead of a class for the findings and the parsed log entries, mostly to keep things simple while I was still learning how regex and functions fit together. It also made the functions easier to test on their own since a dictionary is just data, nothing hidden inside it.
+
+The time window matters a lot here. Ten failed logins spread out over a whole week is not really an attack, but ten failed logins in eight seconds definitely is. Same total count, very different meaning, so the program checks the time gap between attempts, not just the total.
+
+This project genuinely took me a long time to get right, especially the regex part. My first few attempts at the patterns did not work at all and I had to learn a lot about how regex actually reads a string character by character before it started making sense.
+
+## Author
+
+Honore Nduwayo
+Burundi
