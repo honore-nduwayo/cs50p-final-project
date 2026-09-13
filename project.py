@@ -47,10 +47,70 @@ def parse_log_line(line):
             return {"timestamp": datetime.strptime(result.group(1), TIME_FORMAT), "ip": result.group(2), "event_type": "connection_attempt", "port": int(result.group(3)), "user": None}
     return None
 
+
+"""
+The following outputs  a list of dictionaries in this format:
+{"timestamp": None, "ip": None, "event_type": None, "port": None , "user": None}
+"""
 def load_log_file(filepath):
-    ...
+    lines = []
+    with open(filepath, "r") as file:
+        for line in file:
+            entry = parse_log_line(line)
+            if entry:
+                lines.append(entry)
+    return lines
+
+"""
+example of what this will return
+{
+  "203.0.113.45": [
+      {"timestamp": datetime(2026,9,1,12,33,39), "ip": "203.0.113.45", "event_type": "failed_login", "port": 57478, "user": "root"},
+      {"timestamp": datetime(2026,9,1,12,33,43), "ip": "203.0.113.45", "event_type": "failed_login", "port": 58702, "user": "root"},
+      ... 6 more ...
+  ],
+  "203.0.113.99": [
+      {"timestamp": datetime(2026,9,1,12,34,16), "ip": "203.0.113.99", "event_type": "failed_login", "port": 57814, "user": "root"},
+      ... 4 more ...
+  ]
+}"""
 def detect_brute_force(entries, threshold, time_window_seconds):
-    ...
+    bf = {}
+    for entry in entries:
+        if entry["event_type"] != "failed_login":
+            continue
+        ip = entry["ip"]
+        if ip not in bf:
+            bf[ip] = []
+        bf[ip].append(entry)
+
+    findings = []
+    for ip in bf:
+        events = sorted(bf[ip], key=lambda e: e["timestamp"])
+        for i in range(len(events)):
+            window_count = 0
+            window_events = []
+            for j in range(i, len(events)):
+                gap = (events[j]["timestamp"] - events[i]["timestamp"]).total_seconds()
+                if gap <= time_window_seconds:
+                    window_count += 1
+                    window_events.append(events[j])
+                else:
+                    break
+            if window_count >= threshold:
+                card = {
+                    "type": "brute_force",
+                    "ip": ip,
+                    "count": window_count,
+                    "user": window_events[0]["user"],
+                    "first": window_events[0]["timestamp"],
+                    "last": window_events[-1]["timestamp"],
+                }
+                findings.append(card)
+                break  # one finding per IP is enough
+    return findings
+
+    
 def detect_port_scan(entries, threshold, time_window_seconds):
     ...
 
