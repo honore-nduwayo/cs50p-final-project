@@ -206,8 +206,9 @@ def generate_report(findings):
     report = ""
     for finding in sorted_findings:
         if finding["type"] == "brute_force":
-            report += f"""------------------------------------------------------------
-    [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
+            report += f"""
+           
+    Severity: {calculate_severity(finding)} {finding["type"].upper()}
     ------------------------------------------------------------
     IP Address     : {finding['ip']}
     Failed Attempts: {finding['count']}
@@ -216,22 +217,26 @@ def generate_report(findings):
     """
         elif finding["type"] == "port_scan":
             ports_text = ", ".join(str(p) for p in finding["ports"])
-            report += f"""------------------------------------------------------------
-        [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
-        ------------------------------------------------------------
-        IP Address     : {finding['ip']}
-        Distinct Ports : {finding['port_count']}
-        Ports Touched  : {ports_text}
-        Time Window    : {finding['first']} → {finding['last']}
-        """
+            report += f"""
+            
+        
+    Severity: {calculate_severity(finding)} {finding["type"].upper()}
+    ------------------------------------------------------------
+    IP Address     : {finding['ip']}
+    Distinct Ports : {finding['port_count']}
+    Ports Touched  : {ports_text}
+    Time Window    : {finding['first']} → {finding['last']}
+    """
         else:  # unusual_hours
-            report += f"""------------------------------------------------------------
-        [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
-        ------------------------------------------------------------
-        IP Address     : {finding['ip']}
-        User           : {finding['user']}
-        Timestamp      : {finding['timestamp']}
-        """
+            report += f"""
+            
+           
+    Severity: {calculate_severity(finding)} {finding["type"].upper()}
+    ------------------------------------------------------------
+    IP Address     : {finding['ip']}
+    User           : {finding['user']}
+    Timestamp      : {finding['timestamp']}
+    """
 
     return report
 
