@@ -110,15 +110,67 @@ def detect_brute_force(entries, threshold, time_window_seconds):
                 break  # one finding per IP is enough
     return findings
 
-    
+
+# THis is the retuned dcit format {"type": "port_scan", "ip": ip, "port_count": int, "ports": list, "first": datetime, "last": datetime}
 def detect_port_scan(entries, threshold, time_window_seconds):
-    ...
+    bf = {}
+    for entry in entries:
+        if entry["event_type"] != "connection_attempt":
+            continue
+        ip = entry["ip"]
+        if ip not in bf:
+            bf[ip] = []
+        bf[ip].append(entry)
+    findings = []
+    for ip in bf:
+        events = sorted(bf[ip], key=lambda e: e["timestamp"])
+        for i in range(len(events)):
+            ports_seen = set()
+            window_events = []
+            for j in range(i, len(events)):
+                gap = (events[j]["timestamp"] - events[i]["timestamp"]).total_seconds()
+                if gap <= time_window_seconds:
+                    ports_seen.add(events[j]["port"])
+                    window_events.append(events[j])
+                else:
+                    break
+            if len(ports_seen) >= threshold:
+                card = {"type": "port_scan", "ip": ip, "port_count": len(ports_seen),"ports": sorted(ports_seen), "first": window_events[0]["timestamp"],"last": window_events[-1]["timestamp"]}
+                findings.append(card)
+                break
+    return findings
 
+
+# This one returns a type of data type of this kind:"{"type": "unusual_hours", "ip": ip, "user": user, "timestamp": timestamp}"
 def detect_unusual_hours(entries, normal_start_hour, normal_end_hour):
-    ...
+    findings = []
+    for entry in entries:
+        if entry["event_type"] != "success_login":
+            continue
+        hour = entry["timestamp"].hour
+        if hour < normal_start_hour or hour > normal_end_hour:
+            card = {"type": "unusual_hours", "ip": entry["ip"], "user": entry["user"], "timestamp": entry["timestamp"]}
+            findings.append(card)
+    return findings
+    
 def calculate_severity(finding):
-    ...
+    
+    if finding["type"] == "brute_force":
+        if finding["count"] >=15:
+            return "CRITICAL"
+        elif finding["count"] >=8:
+            return "HIGH"
+        return "MEDIUM"
+    elif finding["type"] == "port_scan":
+        if finding["port_count"] >=20:
+            return "CRITICAL"
+        elif finding["port_count"] >=10:
+            return "HIGH"
+        return "MEDIUM"
+    elif finding["type"] == "unusual_hours":
+        return "LOW"
 
+    
 def generate_report(findings):
     ...
 
