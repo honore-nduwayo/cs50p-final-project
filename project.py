@@ -28,10 +28,35 @@ ATTEMPT  = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*\bfrom\s+(\d{1,3}\.\d{1,3}\.
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%S"
 
 def main():
-    ...
-def get_args():
-    ...
+    args = get_args()
+    entries = load_log_file(args.logfile)
 
+    findings = (
+        detect_brute_force(entries, args.failed_login_threshold, args.time_window)
+        + detect_port_scan(entries, args.port_scan_threshold, args.time_window)
+        + detect_unusual_hours(entries, args.normal_start_hour, args.normal_end_hour)
+    )
+
+    report = generate_report(findings)
+
+    if args.output:
+        save_report(report, args.output)
+        print(f"Report saved to {args.output}")
+    else:
+        print(report)
+
+    sys.exit(1 if findings else 0)
+def get_args():
+    parser = argparse.ArgumentParser(description="Log Analyzer & Intrusion Detection Script")
+    parser.add_argument("logfile", help="Path to the log file to analyze")
+    parser.add_argument("--failed-login-threshold", type=int, default=4, help="Failed logins to flag as brute force (default: 4)")
+    parser.add_argument("--port-scan-threshold", type=int, default=5, help="Distinct ports to flag as a scan (default: 5)")
+    parser.add_argument("--time-window", type=int, default=60, help="Sliding time window in seconds (default: 60)")
+    parser.add_argument("--normal-start-hour", type=int, default=6, help="Start of normal login hours (default: 6)")
+    parser.add_argument("--normal-end-hour", type=int, default=22, help="End of normal login hours (default: 22)")
+    parser.add_argument("--output", default=None, help="Optional path to save the report instead of printing it")
+
+    return parser.parse_args()
 def parse_log_line(line):
     if "Failed" in line:
         result = re.search(FAILED, line)
@@ -154,7 +179,7 @@ def detect_unusual_hours(entries, normal_start_hour, normal_end_hour):
     return findings
     
 def calculate_severity(finding):
-    
+
     if finding["type"] == "brute_force":
         if finding["count"] >=15:
             return "CRITICAL"
@@ -170,13 +195,48 @@ def calculate_severity(finding):
     elif finding["type"] == "unusual_hours":
         return "LOW"
 
-    
 def generate_report(findings):
-    ...
+    if not findings:
+        return "No suspicious activity detected."
+
+    priority = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
+    sorted_findings = sorted(findings, key=lambda f: priority[calculate_severity(f)])
+
+    report = ""
+    for finding in sorted_findings:
+        if finding["type"] == "brute_force":
+            report += f"""------------------------------------------------------------
+    [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
+    ------------------------------------------------------------
+    IP Address     : {finding['ip']}
+    Failed Attempts: {finding['count']}
+    Targeted User  : {finding['user']}
+    Time Window    : {finding['first']} → {finding['last']}
+    """
+        elif finding["type"] == "port_scan":
+            ports_text = ", ".join(str(p) for p in finding["ports"])
+            report += f"""------------------------------------------------------------
+        [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
+        ------------------------------------------------------------
+        IP Address     : {finding['ip']}
+        Distinct Ports : {finding['port_count']}
+        Ports Touched  : {ports_text}
+        Time Window    : {finding['first']} → {finding['last']}
+        """
+        else:  # unusual_hours
+            report += f"""------------------------------------------------------------
+        [Severity: {calculate_severity(finding)}] {finding["type"].upper()}
+        ------------------------------------------------------------
+        IP Address     : {finding['ip']}
+        User           : {finding['user']}
+        Timestamp      : {finding['timestamp']}
+        """
+
+    return report
 
 def save_report(report_text, output_path):
-    ...
-    
+    with open(output_path, "w") as f:
+        f.write(report_text)
 
 if __name__ == "__main__":
     main()
