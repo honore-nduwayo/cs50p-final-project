@@ -64,7 +64,37 @@ SUMMARY
  END OF REPORT
 ============================================================
 ```
+## Commands
 
+NOTE: THESE COMMANDS USING "python3" as a requirement for macs, for other, you might not need the "3" and simply use "python"
+
+Running the program:
+
+1. python3 project.py sample.log
+
+2. python3 project.py sample.log --failed-login-threshold 4 --port-scan-threshold 5 --time-window 60
+
+3. python3 project.py sample.log --output report.txt
+
+
+Regenerating test data:
+
+1. python3 generate_test_data.py --output sample.log --lines 200
+
+Running the tests:
+
+1. python3 -m pytest test_project.py
+
+2. python3 -m pytest test_project.py -v
+
+`-v` shows each test name individually, pass or fail, instead of just a summary count.
+
+3. python3 -m pytest test_project.py -v -k parse_log_line
+
+`-k` runs only tests whose name contains that text — useful for rerunning one function's tests while debugging without running the whole suite.
+
+
+Anything specific among these you want to run right now and check the output of?
 ## Files in this project
 
 `project.py` is the whole program. It has these functions inside it.
