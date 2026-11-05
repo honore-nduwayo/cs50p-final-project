@@ -93,8 +93,6 @@ Running the tests:
 
 `-k` runs only tests whose name contains that text — useful for rerunning one function's tests while debugging without running the whole suite.
 
-
-Anything specific among these you want to run right now and check the output of?
 ## Files in this project
 
 `project.py` is the whole program. It has these functions inside it.
