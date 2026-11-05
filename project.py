@@ -1,7 +1,12 @@
 """
-CS50 Final Project
+ CS50 - Introduction To Programming With Python Final Project
+
+Projectroject’s title: Log Analyzer & Intrusion Detector
 Name: Honoré Nduwayo
-Country: Burundi
+GitHub username:honore-nduwayo
+EdX username: nduwayohonore
+Video Recording date: Nov-5-2026
+City & Country: Accra, Ghana
 
 """
 # Importing libraries/requirements
@@ -9,16 +14,13 @@ import re
 import argparse
 #import datetime
 from datetime import datetime
-import collections
 import sys
-from dataclasses import dataclass
 #import datetime
 
 #{"timestamp": some_datetime, "ip": "203.0.113.45", "event_type": "failed_login", "port": 51422, "user": None}
 line =  "2026-09-01T12:33:39 webserver01 sshd[5369]: Failed password for invalid user root from 203.0.113.45 port 57478 ssh2"
 line1= "2026-09-01T09:32:07 webserver01 sshd[8362]: Accepted password for admin from 192.168.1.22 port 54061 ssh2"
-line2 = "2026-09-01T10:41:35 webserver01 sshd[10830]: Accepted password for svc_web from 10.0.0.8 port 52144 ssh2"
-
+line2 = "2026-09-01T12:34:03 webserver01 kernel: Connection attempt from 198.51.100.23 to port 15368"
 #### Reg Exes for diffrent incidents, by the help of stuck overflow
 
 FAILED   = r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*\buser\s+(\w+)\s+from\b\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s+port\s+(\d+)"
@@ -248,3 +250,4 @@ if __name__ == "__main__":
     main()
 
 
+# This was CS50
