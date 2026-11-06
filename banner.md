@@ -3,7 +3,7 @@
 
 
 
-##### Projectroject’s title: Log Analyzer & Intrusion Detector
+##### Project title: Log Analyzer & Intrusion Detector
 ##### Name: Honoré Nduwayo
 ##### GitHub username:honore-nduwayo
 ##### EdX username: nduwayohonore
