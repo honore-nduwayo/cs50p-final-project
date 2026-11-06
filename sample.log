@@ -1,4 +1,4 @@
-2026-09-01T03:46:24 webserver01 sshd[11705]: Accepted password for deploy from 192.168.1.10 port 54835 ssh2
+2026-09-01T03:05:11 webserver01 sshd[1873]: Accepted password for deploy from 192.168.1.22 port 55727 ssh2
 2026-09-01T08:01:02 webserver01 sshd[8314]: Accepted password for backup from 192.168.1.10 port 54012 ssh2
 2026-09-01T08:02:18 webserver01 sshd[14825]: Accepted password for jsmith from 192.168.1.10 port 51424 ssh2
 2026-09-01T08:02:39 webserver01 sshd[8623]: Accepted password for admin from 192.168.1.10 port 53582 ssh2
@@ -99,128 +99,228 @@
 2026-09-01T12:30:43 webserver01 sshd[8994]: Accepted password for svc_web from 192.168.1.22 port 56547 ssh2
 2026-09-01T12:32:03 webserver01 sshd[8170]: Accepted password for admin from 192.168.1.10 port 56965 ssh2
 2026-09-01T12:33:38 webserver01 sshd[9165]: Accepted password for admin from 192.168.1.22 port 59132 ssh2
-2026-09-01T12:33:39 webserver01 sshd[5369]: Failed password for invalid user root from 203.0.113.45 port 57478 ssh2
-2026-09-01T12:33:43 webserver01 sshd[19314]: Failed password for invalid user root from 203.0.113.45 port 58702 ssh2
-2026-09-01T12:33:46 webserver01 sshd[17540]: Failed password for invalid user root from 203.0.113.45 port 57251 ssh2
-2026-09-01T12:33:50 webserver01 sshd[15611]: Failed password for invalid user root from 203.0.113.45 port 58976 ssh2
-2026-09-01T12:33:52 webserver01 sshd[15747]: Failed password for invalid user root from 203.0.113.45 port 57777 ssh2
-2026-09-01T12:33:55 webserver01 sshd[10086]: Failed password for invalid user root from 203.0.113.45 port 54050 ssh2
-2026-09-01T12:33:59 webserver01 sshd[9998]: Failed password for invalid user root from 203.0.113.45 port 53919 ssh2
-2026-09-01T12:34:03 webserver01 sshd[10362]: Failed password for invalid user root from 203.0.113.45 port 51269 ssh2
-2026-09-01T12:34:03 webserver01 kernel: Connection attempt from 198.51.100.23 to port 15368
-2026-09-01T12:34:03 webserver01 kernel: Connection attempt from 198.51.100.23 to port 17808
-2026-09-01T12:34:04 webserver01 kernel: Connection attempt from 198.51.100.23 to port 22011
-2026-09-01T12:34:05 webserver01 kernel: Connection attempt from 198.51.100.23 to port 20953
-2026-09-01T12:34:06 webserver01 kernel: Connection attempt from 198.51.100.23 to port 58526
-2026-09-01T12:34:06 webserver01 kernel: Connection attempt from 198.51.100.23 to port 35400
-2026-09-01T12:34:07 webserver01 kernel: Connection attempt from 198.51.100.23 to port 5281
-2026-09-01T12:34:08 webserver01 kernel: Connection attempt from 198.51.100.23 to port 9069
-2026-09-01T12:34:09 webserver01 kernel: Connection attempt from 198.51.100.23 to port 9885
-2026-09-01T12:34:10 webserver01 kernel: Connection attempt from 198.51.100.23 to port 15156
-2026-09-01T12:34:11 webserver01 kernel: Connection attempt from 198.51.100.23 to port 25103
-2026-09-01T12:34:12 webserver01 kernel: Connection attempt from 198.51.100.23 to port 45479
-2026-09-01T12:34:16 webserver01 sshd[1193]: Failed password for invalid user root from 203.0.113.99 port 57814 ssh2
-2026-09-01T12:34:19 webserver01 sshd[13779]: Failed password for invalid user root from 203.0.113.99 port 54892 ssh2
-2026-09-01T12:34:23 webserver01 sshd[18895]: Failed password for invalid user root from 203.0.113.99 port 58818 ssh2
-2026-09-01T12:34:25 webserver01 sshd[8190]: Failed password for invalid user root from 203.0.113.99 port 57999 ssh2
-2026-09-01T12:34:28 webserver01 sshd[16913]: Failed password for invalid user root from 203.0.113.99 port 57140 ssh2
-2026-09-01T12:34:47 webserver01 sshd[6408]: Accepted password for backup from 192.168.1.22 port 56624 ssh2
-2026-09-01T12:38:51 webserver01 sshd[1883]: Accepted password for jsmith from 192.168.1.14 port 58751 ssh2
-2026-09-01T12:42:17 webserver01 sshd[5446]: Accepted password for admin from 192.168.1.10 port 57022 ssh2
-2026-09-01T12:46:18 webserver01 sshd[13422]: Accepted password for admin from 192.168.1.14 port 54262 ssh2
-2026-09-01T12:49:10 webserver01 sshd[12059]: Accepted password for svc_web from 192.168.1.14 port 55355 ssh2
-2026-09-01T12:52:29 webserver01 sshd[3683]: Accepted password for svc_web from 10.0.0.8 port 54133 ssh2
-2026-09-01T12:56:34 webserver01 sshd[12467]: Accepted password for jsmith from 192.168.1.10 port 50853 ssh2
-2026-09-01T12:58:33 webserver01 sshd[9102]: Accepted password for admin from 192.168.1.10 port 50508 ssh2
-2026-09-01T13:00:20 webserver01 sshd[8816]: Accepted password for jsmith from 192.168.1.10 port 52496 ssh2
-2026-09-01T13:01:29 webserver01 sshd[8142]: Accepted password for admin from 192.168.1.22 port 59240 ssh2
-2026-09-01T13:05:32 webserver01 sshd[4753]: Accepted password for backup from 10.0.0.8 port 52749 ssh2
-2026-09-01T13:07:00 webserver01 sshd[1841]: Accepted password for admin from 10.0.0.8 port 59481 ssh2
-2026-09-01T13:09:44 webserver01 sshd[3490]: Accepted password for svc_web from 192.168.1.22 port 53249 ssh2
-2026-09-01T13:11:53 webserver01 sshd[4966]: Accepted password for backup from 192.168.1.10 port 59837 ssh2
-2026-09-01T13:16:47 webserver01 sshd[15037]: Accepted password for backup from 192.168.1.10 port 58728 ssh2
-2026-09-01T13:20:01 webserver01 sshd[1414]: Accepted password for jsmith from 192.168.1.10 port 55590 ssh2
-2026-09-01T13:23:41 webserver01 sshd[12868]: Accepted password for admin from 192.168.1.22 port 57102 ssh2
-2026-09-01T13:27:41 webserver01 sshd[18096]: Accepted password for svc_web from 192.168.1.14 port 52885 ssh2
-2026-09-01T13:30:04 webserver01 sshd[9794]: Accepted password for svc_web from 192.168.1.22 port 57136 ssh2
-2026-09-01T13:32:54 webserver01 sshd[15771]: Accepted password for admin from 192.168.1.14 port 54569 ssh2
-2026-09-01T13:35:03 webserver01 sshd[13418]: Accepted password for jsmith from 192.168.1.22 port 59999 ssh2
-2026-09-01T13:38:00 webserver01 sshd[6958]: Accepted password for svc_web from 192.168.1.10 port 55325 ssh2
-2026-09-01T13:42:14 webserver01 sshd[12152]: Accepted password for backup from 192.168.1.14 port 54232 ssh2
-2026-09-01T13:44:42 webserver01 sshd[17928]: Accepted password for jsmith from 10.0.0.8 port 50166 ssh2
-2026-09-01T13:46:24 webserver01 sshd[17009]: Accepted password for deploy from 192.168.1.10 port 56658 ssh2
-2026-09-01T13:51:13 webserver01 sshd[15685]: Accepted password for svc_web from 192.168.1.14 port 58041 ssh2
-2026-09-01T13:51:26 webserver01 sshd[14251]: Accepted password for backup from 192.168.1.10 port 53630 ssh2
-2026-09-01T13:53:35 webserver01 sshd[16507]: Accepted password for jsmith from 10.0.0.8 port 56046 ssh2
-2026-09-01T13:58:23 webserver01 sshd[11839]: Accepted password for svc_web from 10.0.0.8 port 59017 ssh2
-2026-09-01T14:01:28 webserver01 sshd[9237]: Accepted password for backup from 192.168.1.22 port 55023 ssh2
-2026-09-01T14:03:31 webserver01 sshd[4917]: Accepted password for deploy from 192.168.1.10 port 55169 ssh2
-2026-09-01T14:08:10 webserver01 sshd[16866]: Accepted password for deploy from 192.168.1.14 port 53545 ssh2
-2026-09-01T14:10:36 webserver01 sshd[10707]: Accepted password for admin from 10.0.0.8 port 53180 ssh2
-2026-09-01T14:12:37 webserver01 sshd[1463]: Accepted password for deploy from 10.0.0.8 port 54952 ssh2
-2026-09-01T14:17:15 webserver01 sshd[2786]: Accepted password for backup from 192.168.1.14 port 50745 ssh2
-2026-09-01T14:22:03 webserver01 sshd[4361]: Accepted password for deploy from 10.0.0.8 port 58042 ssh2
-2026-09-01T14:22:14 webserver01 sshd[15433]: Accepted password for svc_web from 10.0.0.8 port 57843 ssh2
-2026-09-01T14:25:13 webserver01 sshd[16654]: Accepted password for admin from 192.168.1.14 port 54136 ssh2
-2026-09-01T14:26:16 webserver01 sshd[3427]: Accepted password for svc_web from 192.168.1.10 port 58056 ssh2
-2026-09-01T14:31:16 webserver01 sshd[19443]: Accepted password for deploy from 192.168.1.10 port 52444 ssh2
-2026-09-01T14:33:56 webserver01 sshd[19286]: Accepted password for deploy from 192.168.1.10 port 51940 ssh2
-2026-09-01T14:37:34 webserver01 sshd[15762]: Accepted password for jsmith from 192.168.1.14 port 56232 ssh2
-2026-09-01T14:41:25 webserver01 sshd[11006]: Accepted password for jsmith from 10.0.0.8 port 57025 ssh2
-2026-09-01T14:46:21 webserver01 sshd[7808]: Accepted password for jsmith from 192.168.1.10 port 51625 ssh2
-2026-09-01T14:48:14 webserver01 sshd[8859]: Accepted password for admin from 10.0.0.8 port 52573 ssh2
-2026-09-01T14:49:47 webserver01 sshd[14386]: Accepted password for deploy from 192.168.1.10 port 50043 ssh2
-2026-09-01T14:53:42 webserver01 sshd[8585]: Accepted password for backup from 192.168.1.22 port 50534 ssh2
-2026-09-01T14:56:14 webserver01 sshd[8648]: Accepted password for svc_web from 10.0.0.8 port 51166 ssh2
-2026-09-01T14:58:34 webserver01 sshd[18844]: Accepted password for svc_web from 192.168.1.14 port 51880 ssh2
-2026-09-01T15:00:34 webserver01 sshd[3339]: Accepted password for backup from 192.168.1.14 port 52330 ssh2
-2026-09-01T15:01:09 webserver01 sshd[19651]: Accepted password for backup from 192.168.1.14 port 59749 ssh2
-2026-09-01T15:03:41 webserver01 sshd[10964]: Accepted password for admin from 192.168.1.22 port 57679 ssh2
-2026-09-01T15:07:12 webserver01 sshd[17180]: Accepted password for jsmith from 10.0.0.8 port 58847 ssh2
-2026-09-01T15:11:01 webserver01 sshd[15156]: Accepted password for jsmith from 192.168.1.10 port 50653 ssh2
-2026-09-01T15:13:51 webserver01 sshd[8501]: Accepted password for admin from 10.0.0.8 port 51496 ssh2
-2026-09-01T15:18:50 webserver01 sshd[2318]: Accepted password for backup from 192.168.1.10 port 59441 ssh2
-2026-09-01T15:20:24 webserver01 sshd[10114]: Accepted password for jsmith from 192.168.1.22 port 57245 ssh2
-2026-09-01T15:22:01 webserver01 sshd[16401]: Accepted password for svc_web from 192.168.1.22 port 51494 ssh2
-2026-09-01T15:25:04 webserver01 sshd[4427]: Accepted password for backup from 192.168.1.22 port 55260 ssh2
-2026-09-01T15:26:31 webserver01 sshd[10444]: Accepted password for svc_web from 10.0.0.8 port 58117 ssh2
-2026-09-01T15:30:01 webserver01 sshd[11306]: Accepted password for svc_web from 192.168.1.10 port 51442 ssh2
-2026-09-01T15:32:15 webserver01 sshd[17862]: Accepted password for admin from 10.0.0.8 port 56622 ssh2
-2026-09-01T15:32:20 webserver01 sshd[7146]: Accepted password for svc_web from 192.168.1.22 port 50888 ssh2
-2026-09-01T15:36:50 webserver01 sshd[15484]: Accepted password for jsmith from 10.0.0.8 port 58167 ssh2
-2026-09-01T15:37:21 webserver01 sshd[5293]: Accepted password for backup from 192.168.1.14 port 58998 ssh2
-2026-09-01T15:39:53 webserver01 sshd[1945]: Accepted password for svc_web from 192.168.1.22 port 51989 ssh2
-2026-09-01T15:42:00 webserver01 sshd[1448]: Accepted password for backup from 192.168.1.14 port 59024 ssh2
-2026-09-01T15:46:47 webserver01 sshd[4717]: Accepted password for admin from 192.168.1.22 port 53681 ssh2
-2026-09-01T15:50:48 webserver01 sshd[10563]: Accepted password for deploy from 192.168.1.10 port 58165 ssh2
-2026-09-01T15:55:13 webserver01 sshd[16473]: Accepted password for svc_web from 10.0.0.8 port 57905 ssh2
-2026-09-01T15:57:22 webserver01 sshd[13569]: Accepted password for jsmith from 192.168.1.22 port 52369 ssh2
-2026-09-01T15:59:04 webserver01 sshd[14596]: Accepted password for admin from 192.168.1.14 port 54526 ssh2
-2026-09-01T16:02:03 webserver01 sshd[10783]: Accepted password for admin from 10.0.0.8 port 54634 ssh2
-2026-09-01T16:06:18 webserver01 sshd[16870]: Accepted password for svc_web from 192.168.1.14 port 58824 ssh2
-2026-09-01T16:09:19 webserver01 sshd[13360]: Accepted password for jsmith from 10.0.0.8 port 58903 ssh2
-2026-09-01T16:13:17 webserver01 sshd[19736]: Accepted password for deploy from 10.0.0.8 port 53912 ssh2
-2026-09-01T16:16:38 webserver01 sshd[11426]: Accepted password for svc_web from 192.168.1.14 port 50715 ssh2
-2026-09-01T16:20:45 webserver01 sshd[17230]: Accepted password for svc_web from 192.168.1.22 port 52492 ssh2
-2026-09-01T16:21:08 webserver01 sshd[11878]: Accepted password for jsmith from 192.168.1.14 port 59669 ssh2
-2026-09-01T16:22:04 webserver01 sshd[15972]: Accepted password for admin from 192.168.1.22 port 58617 ssh2
-2026-09-01T16:22:16 webserver01 sshd[3451]: Accepted password for svc_web from 192.168.1.14 port 52529 ssh2
-2026-09-01T16:26:21 webserver01 sshd[3631]: Accepted password for backup from 10.0.0.8 port 56512 ssh2
-2026-09-01T16:29:14 webserver01 sshd[18728]: Accepted password for backup from 192.168.1.22 port 57994 ssh2
-2026-09-01T16:29:37 webserver01 sshd[8454]: Accepted password for deploy from 192.168.1.10 port 54708 ssh2
-2026-09-01T16:30:28 webserver01 sshd[15538]: Accepted password for admin from 192.168.1.22 port 51646 ssh2
-2026-09-01T16:31:58 webserver01 sshd[11629]: Accepted password for admin from 10.0.0.8 port 50753 ssh2
-2026-09-01T16:32:31 webserver01 sshd[15112]: Accepted password for backup from 10.0.0.8 port 56141 ssh2
-2026-09-01T16:33:50 webserver01 sshd[19544]: Accepted password for jsmith from 192.168.1.14 port 56751 ssh2
-2026-09-01T16:35:27 webserver01 sshd[13535]: Accepted password for deploy from 192.168.1.14 port 51293 ssh2
-2026-09-01T16:37:35 webserver01 sshd[8608]: Accepted password for jsmith from 192.168.1.22 port 52344 ssh2
-2026-09-01T16:41:36 webserver01 sshd[1307]: Accepted password for svc_web from 10.0.0.8 port 54183 ssh2
-2026-09-01T16:45:39 webserver01 sshd[3420]: Accepted password for jsmith from 10.0.0.8 port 52588 ssh2
-2026-09-01T16:49:30 webserver01 sshd[14903]: Accepted password for jsmith from 10.0.0.8 port 54901 ssh2
-2026-09-01T16:51:43 webserver01 sshd[13605]: Accepted password for backup from 192.168.1.22 port 53263 ssh2
-2026-09-01T16:55:55 webserver01 sshd[19740]: Accepted password for deploy from 192.168.1.10 port 56248 ssh2
-2026-09-01T16:59:03 webserver01 sshd[13969]: Accepted password for backup from 10.0.0.8 port 50359 ssh2
-2026-09-01T17:01:28 webserver01 sshd[17276]: Accepted password for jsmith from 192.168.1.10 port 50803 ssh2
-2026-09-01T17:03:59 webserver01 sshd[8176]: Accepted password for jsmith from 192.168.1.14 port 55772 ssh2
-2026-09-01T17:05:41 webserver01 sshd[2291]: Accepted password for deploy from 10.0.0.8 port 51591 ssh2
-2026-09-01T17:08:24 webserver01 sshd[12955]: Accepted password for admin from 192.168.1.22 port 59495 ssh2
+2026-09-01T12:34:45 webserver01 sshd[18404]: Accepted password for deploy from 192.168.1.22 port 57612 ssh2
+2026-09-01T12:39:36 webserver01 sshd[14983]: Accepted password for svc_web from 10.0.0.8 port 58270 ssh2
+2026-09-01T12:44:21 webserver01 sshd[15747]: Accepted password for deploy from 192.168.1.22 port 57777 ssh2
+2026-09-01T12:46:38 webserver01 sshd[16879]: Accepted password for backup from 192.168.1.14 port 58540 ssh2
+2026-09-01T12:48:45 webserver01 sshd[10362]: Accepted password for svc_web from 10.0.0.8 port 51269 ssh2
+2026-09-01T12:50:50 webserver01 sshd[18699]: Accepted password for backup from 10.0.0.8 port 55238 ssh2
+2026-09-01T12:51:36 webserver01 sshd[13551]: Accepted password for deploy from 192.168.1.14 port 53788 ssh2
+2026-09-01T12:52:59 webserver01 sshd[14356]: Accepted password for admin from 192.168.1.14 port 56797 ssh2
+2026-09-01T12:55:53 webserver01 sshd[7777]: Accepted password for svc_web from 192.168.1.22 port 51020 ssh2
+2026-09-01T12:59:33 webserver01 sshd[19864]: Accepted password for jsmith from 192.168.1.22 port 50320 ssh2
+2026-09-01T13:02:52 webserver01 sshd[10784]: Accepted password for admin from 192.168.1.22 port 55763 ssh2
+2026-09-01T13:06:16 webserver01 sshd[8226]: Accepted password for jsmith from 192.168.1.22 port 58947 ssh2
+2026-09-01T13:10:30 webserver01 sshd[16913]: Accepted password for backup from 192.168.1.14 port 57140 ssh2
+2026-09-01T13:10:49 webserver01 sshd[6408]: Accepted password for backup from 192.168.1.22 port 56624 ssh2
+2026-09-01T13:14:53 webserver01 sshd[1883]: Accepted password for jsmith from 192.168.1.14 port 58751 ssh2
+2026-09-01T13:18:19 webserver01 sshd[5446]: Accepted password for admin from 192.168.1.10 port 57022 ssh2
+2026-09-01T13:22:20 webserver01 sshd[13422]: Accepted password for admin from 192.168.1.14 port 54262 ssh2
+2026-09-01T13:25:12 webserver01 sshd[12059]: Accepted password for svc_web from 192.168.1.14 port 55355 ssh2
+2026-09-01T13:28:31 webserver01 sshd[3683]: Accepted password for svc_web from 10.0.0.8 port 54133 ssh2
+2026-09-01T13:32:36 webserver01 sshd[12467]: Accepted password for jsmith from 192.168.1.10 port 50853 ssh2
+2026-09-01T13:34:35 webserver01 sshd[9102]: Accepted password for admin from 192.168.1.10 port 50508 ssh2
+2026-09-01T13:36:22 webserver01 sshd[8816]: Accepted password for jsmith from 192.168.1.10 port 52496 ssh2
+2026-09-01T13:37:31 webserver01 sshd[8142]: Accepted password for admin from 192.168.1.22 port 59240 ssh2
+2026-09-01T13:41:34 webserver01 sshd[4753]: Accepted password for backup from 10.0.0.8 port 52749 ssh2
+2026-09-01T13:43:02 webserver01 sshd[1841]: Accepted password for admin from 10.0.0.8 port 59481 ssh2
+2026-09-01T13:45:46 webserver01 sshd[3490]: Accepted password for svc_web from 192.168.1.22 port 53249 ssh2
+2026-09-01T13:47:55 webserver01 sshd[4966]: Accepted password for backup from 192.168.1.10 port 59837 ssh2
+2026-09-01T13:52:49 webserver01 sshd[15037]: Accepted password for backup from 192.168.1.10 port 58728 ssh2
+2026-09-01T13:56:03 webserver01 sshd[1414]: Accepted password for jsmith from 192.168.1.10 port 55590 ssh2
+2026-09-01T13:59:43 webserver01 sshd[12868]: Accepted password for admin from 192.168.1.22 port 57102 ssh2
+2026-09-01T14:03:43 webserver01 sshd[18096]: Accepted password for svc_web from 192.168.1.14 port 52885 ssh2
+2026-09-01T14:06:06 webserver01 sshd[9794]: Accepted password for svc_web from 192.168.1.22 port 57136 ssh2
+2026-09-01T14:08:56 webserver01 sshd[15771]: Accepted password for admin from 192.168.1.14 port 54569 ssh2
+2026-09-01T14:11:05 webserver01 sshd[13418]: Accepted password for jsmith from 192.168.1.22 port 59999 ssh2
+2026-09-01T14:14:02 webserver01 sshd[6958]: Accepted password for svc_web from 192.168.1.10 port 55325 ssh2
+2026-09-01T14:18:16 webserver01 sshd[12152]: Accepted password for backup from 192.168.1.14 port 54232 ssh2
+2026-09-01T14:20:44 webserver01 sshd[17928]: Accepted password for jsmith from 10.0.0.8 port 50166 ssh2
+2026-09-01T14:22:26 webserver01 sshd[17009]: Accepted password for deploy from 192.168.1.10 port 56658 ssh2
+2026-09-01T14:27:15 webserver01 sshd[15685]: Accepted password for svc_web from 192.168.1.14 port 58041 ssh2
+2026-09-01T14:27:28 webserver01 sshd[14251]: Accepted password for backup from 192.168.1.10 port 53630 ssh2
+2026-09-01T14:29:37 webserver01 sshd[16507]: Accepted password for jsmith from 10.0.0.8 port 56046 ssh2
+2026-09-01T14:34:25 webserver01 sshd[11839]: Accepted password for svc_web from 10.0.0.8 port 59017 ssh2
+2026-09-01T14:37:30 webserver01 sshd[9237]: Accepted password for backup from 192.168.1.22 port 55023 ssh2
+2026-09-01T14:39:33 webserver01 sshd[4917]: Accepted password for deploy from 192.168.1.10 port 55169 ssh2
+2026-09-01T14:44:12 webserver01 sshd[16866]: Accepted password for deploy from 192.168.1.14 port 53545 ssh2
+2026-09-01T14:46:38 webserver01 sshd[10707]: Accepted password for admin from 10.0.0.8 port 53180 ssh2
+2026-09-01T14:48:39 webserver01 sshd[1463]: Accepted password for deploy from 10.0.0.8 port 54952 ssh2
+2026-09-01T14:53:17 webserver01 sshd[2786]: Accepted password for backup from 192.168.1.14 port 50745 ssh2
+2026-09-01T14:58:05 webserver01 sshd[4361]: Accepted password for deploy from 10.0.0.8 port 58042 ssh2
+2026-09-01T14:58:16 webserver01 sshd[15433]: Accepted password for svc_web from 10.0.0.8 port 57843 ssh2
+2026-09-01T14:58:19 webserver01 sshd[2683]: Failed password for invalid user root from 203.0.113.45 port 53020 ssh2
+2026-09-01T14:58:22 webserver01 sshd[4738]: Failed password for invalid user root from 203.0.113.45 port 57827 ssh2
+2026-09-01T14:58:23 webserver01 sshd[17113]: Failed password for invalid user root from 203.0.113.45 port 56565 ssh2
+2026-09-01T14:58:24 webserver01 sshd[2756]: Failed password for invalid user root from 203.0.113.45 port 59453 ssh2
+2026-09-01T14:58:26 webserver01 sshd[19443]: Failed password for invalid user root from 203.0.113.45 port 52444 ssh2
+2026-09-01T14:58:29 webserver01 sshd[9132]: Failed password for invalid user root from 203.0.113.45 port 51395 ssh2
+2026-09-01T14:58:30 webserver01 sshd[14637]: Failed password for invalid user root from 203.0.113.45 port 59143 ssh2
+2026-09-01T14:58:32 webserver01 sshd[13464]: Failed password for invalid user root from 203.0.113.45 port 58561 ssh2
+2026-09-01T14:58:32 webserver01 kernel: Connection attempt from 198.51.100.23 to port 29525
+2026-09-01T14:58:34 webserver01 kernel: Connection attempt from 198.51.100.23 to port 59540
+2026-09-01T14:58:35 webserver01 kernel: Connection attempt from 198.51.100.23 to port 29015
+2026-09-01T14:58:36 webserver01 kernel: Connection attempt from 198.51.100.23 to port 19488
+2026-09-01T14:58:36 webserver01 kernel: Connection attempt from 198.51.100.23 to port 56372
+2026-09-01T14:58:37 webserver01 kernel: Connection attempt from 198.51.100.23 to port 38570
+2026-09-01T14:58:37 webserver01 kernel: Connection attempt from 198.51.100.23 to port 64883
+2026-09-01T14:58:38 webserver01 kernel: Connection attempt from 198.51.100.23 to port 28104
+2026-09-01T14:58:38 webserver01 kernel: Connection attempt from 198.51.100.23 to port 20014
+2026-09-01T14:58:38 webserver01 kernel: Connection attempt from 198.51.100.23 to port 37266
+2026-09-01T14:58:39 webserver01 kernel: Connection attempt from 198.51.100.23 to port 40700
+2026-09-01T14:58:40 webserver01 kernel: Connection attempt from 198.51.100.23 to port 3948
+2026-09-01T14:58:43 webserver01 sshd[8585]: Failed password for invalid user root from 203.0.113.99 port 50534 ssh2
+2026-09-01T14:58:46 webserver01 sshd[15877]: Failed password for invalid user root from 203.0.113.99 port 54632 ssh2
+2026-09-01T14:58:47 webserver01 sshd[9668]: Failed password for invalid user root from 203.0.113.99 port 53824 ssh2
+2026-09-01T14:58:49 webserver01 sshd[4760]: Failed password for invalid user root from 203.0.113.99 port 56965 ssh2
+2026-09-01T14:58:51 webserver01 sshd[9704]: Failed password for invalid user root from 203.0.113.99 port 52441 ssh2
+2026-09-01T15:00:08 webserver01 sshd[11079]: Accepted password for admin from 192.168.1.10 port 52718 ssh2
+2026-09-01T15:05:04 webserver01 sshd[16358]: Accepted password for svc_web from 10.0.0.8 port 52037 ssh2
+2026-09-01T15:07:44 webserver01 sshd[18694]: Accepted password for backup from 192.168.1.22 port 58199 ssh2
+2026-09-01T15:12:01 webserver01 sshd[2306]: Accepted password for admin from 192.168.1.22 port 59798 ssh2
+2026-09-01T15:15:47 webserver01 sshd[1847]: Accepted password for jsmith from 10.0.0.8 port 54102 ssh2
+2026-09-01T15:16:38 webserver01 sshd[1679]: Accepted password for jsmith from 192.168.1.14 port 59619 ssh2
+2026-09-01T15:19:00 webserver01 sshd[18005]: Accepted password for deploy from 192.168.1.10 port 57708 ssh2
+2026-09-01T15:22:51 webserver01 sshd[15283]: Accepted password for deploy from 10.0.0.8 port 59590 ssh2
+2026-09-01T15:27:07 webserver01 sshd[14380]: Accepted password for svc_web from 192.168.1.10 port 55700 ssh2
+2026-09-01T15:30:02 webserver01 sshd[11807]: Accepted password for admin from 10.0.0.8 port 52634 ssh2
+2026-09-01T15:33:37 webserver01 sshd[19025]: Accepted password for backup from 192.168.1.22 port 56561 ssh2
+2026-09-01T15:34:00 webserver01 sshd[9270]: Accepted password for admin from 192.168.1.22 port 55153 ssh2
+2026-09-01T15:36:50 webserver01 sshd[1037]: Accepted password for svc_web from 192.168.1.10 port 58431 ssh2
+2026-09-01T15:41:32 webserver01 sshd[7146]: Accepted password for svc_web from 192.168.1.22 port 50888 ssh2
+2026-09-01T15:46:02 webserver01 sshd[15484]: Accepted password for jsmith from 10.0.0.8 port 58167 ssh2
+2026-09-01T15:46:33 webserver01 sshd[5293]: Accepted password for backup from 192.168.1.14 port 58998 ssh2
+2026-09-01T15:49:05 webserver01 sshd[1945]: Accepted password for svc_web from 192.168.1.22 port 51989 ssh2
+2026-09-01T15:51:12 webserver01 sshd[1448]: Accepted password for backup from 192.168.1.14 port 59024 ssh2
+2026-09-01T15:55:59 webserver01 sshd[4717]: Accepted password for admin from 192.168.1.22 port 53681 ssh2
+2026-09-01T16:00:00 webserver01 sshd[10563]: Accepted password for deploy from 192.168.1.10 port 58165 ssh2
+2026-09-01T16:04:25 webserver01 sshd[16473]: Accepted password for svc_web from 10.0.0.8 port 57905 ssh2
+2026-09-01T16:06:34 webserver01 sshd[13569]: Accepted password for jsmith from 192.168.1.22 port 52369 ssh2
+2026-09-01T16:08:16 webserver01 sshd[14596]: Accepted password for admin from 192.168.1.14 port 54526 ssh2
+2026-09-01T16:11:15 webserver01 sshd[10783]: Accepted password for admin from 10.0.0.8 port 54634 ssh2
+2026-09-01T16:15:30 webserver01 sshd[16870]: Accepted password for svc_web from 192.168.1.14 port 58824 ssh2
+2026-09-01T16:18:31 webserver01 sshd[13360]: Accepted password for jsmith from 10.0.0.8 port 58903 ssh2
+2026-09-01T16:22:29 webserver01 sshd[19736]: Accepted password for deploy from 10.0.0.8 port 53912 ssh2
+2026-09-01T16:25:50 webserver01 sshd[11426]: Accepted password for svc_web from 192.168.1.14 port 50715 ssh2
+2026-09-01T16:29:57 webserver01 sshd[17230]: Accepted password for svc_web from 192.168.1.22 port 52492 ssh2
+2026-09-01T16:30:20 webserver01 sshd[11878]: Accepted password for jsmith from 192.168.1.14 port 59669 ssh2
+2026-09-01T16:31:16 webserver01 sshd[15972]: Accepted password for admin from 192.168.1.22 port 58617 ssh2
+2026-09-01T16:31:28 webserver01 sshd[3451]: Accepted password for svc_web from 192.168.1.14 port 52529 ssh2
+2026-09-01T16:35:33 webserver01 sshd[3631]: Accepted password for backup from 10.0.0.8 port 56512 ssh2
+2026-09-01T16:38:26 webserver01 sshd[18728]: Accepted password for backup from 192.168.1.22 port 57994 ssh2
+2026-09-01T16:38:49 webserver01 sshd[8454]: Accepted password for deploy from 192.168.1.10 port 54708 ssh2
+2026-09-01T16:39:40 webserver01 sshd[15538]: Accepted password for admin from 192.168.1.22 port 51646 ssh2
+2026-09-01T16:41:10 webserver01 sshd[11629]: Accepted password for admin from 10.0.0.8 port 50753 ssh2
+2026-09-01T16:41:43 webserver01 sshd[15112]: Accepted password for backup from 10.0.0.8 port 56141 ssh2
+2026-09-01T16:43:02 webserver01 sshd[19544]: Accepted password for jsmith from 192.168.1.14 port 56751 ssh2
+2026-09-01T16:44:39 webserver01 sshd[13535]: Accepted password for deploy from 192.168.1.14 port 51293 ssh2
+2026-09-01T16:46:47 webserver01 sshd[8608]: Accepted password for jsmith from 192.168.1.22 port 52344 ssh2
+2026-09-01T16:50:48 webserver01 sshd[1307]: Accepted password for svc_web from 10.0.0.8 port 54183 ssh2
+2026-09-01T16:54:51 webserver01 sshd[3420]: Accepted password for jsmith from 10.0.0.8 port 52588 ssh2
+2026-09-01T16:58:42 webserver01 sshd[14903]: Accepted password for jsmith from 10.0.0.8 port 54901 ssh2
+2026-09-01T17:00:55 webserver01 sshd[13605]: Accepted password for backup from 192.168.1.22 port 53263 ssh2
+2026-09-01T17:05:07 webserver01 sshd[19740]: Accepted password for deploy from 192.168.1.10 port 56248 ssh2
+2026-09-01T17:08:15 webserver01 sshd[13969]: Accepted password for backup from 10.0.0.8 port 50359 ssh2
+2026-09-01T17:10:40 webserver01 sshd[17276]: Accepted password for jsmith from 192.168.1.10 port 50803 ssh2
+2026-09-01T17:13:11 webserver01 sshd[8176]: Accepted password for jsmith from 192.168.1.14 port 55772 ssh2
+2026-09-01T17:14:53 webserver01 sshd[2291]: Accepted password for deploy from 10.0.0.8 port 51591 ssh2
+2026-09-01T17:17:36 webserver01 sshd[12955]: Accepted password for admin from 192.168.1.22 port 59495 ssh2
+2026-09-01T17:18:48 webserver01 sshd[14615]: Accepted password for backup from 192.168.1.10 port 55352 ssh2
+2026-09-01T17:20:22 webserver01 sshd[12988]: Accepted password for deploy from 192.168.1.14 port 58837 ssh2
+2026-09-01T17:24:58 webserver01 sshd[16789]: Accepted password for deploy from 10.0.0.8 port 54210 ssh2
+2026-09-01T17:27:34 webserver01 sshd[3467]: Accepted password for admin from 10.0.0.8 port 57673 ssh2
+2026-09-01T17:28:51 webserver01 sshd[12985]: Accepted password for svc_web from 192.168.1.14 port 59131 ssh2
+2026-09-01T17:29:42 webserver01 sshd[18582]: Accepted password for admin from 192.168.1.22 port 54332 ssh2
+2026-09-01T17:30:50 webserver01 sshd[13485]: Accepted password for backup from 192.168.1.22 port 54295 ssh2
+2026-09-01T17:34:05 webserver01 sshd[1820]: Accepted password for deploy from 192.168.1.10 port 57724 ssh2
+2026-09-01T17:38:57 webserver01 sshd[3071]: Accepted password for jsmith from 10.0.0.8 port 53626 ssh2
+2026-09-01T17:42:59 webserver01 sshd[5580]: Accepted password for svc_web from 10.0.0.8 port 51911 ssh2
+2026-09-01T17:43:27 webserver01 sshd[4805]: Accepted password for backup from 192.168.1.10 port 58071 ssh2
+2026-09-01T17:44:21 webserver01 sshd[13735]: Accepted password for jsmith from 192.168.1.14 port 52222 ssh2
+2026-09-01T17:48:18 webserver01 sshd[6063]: Accepted password for jsmith from 10.0.0.8 port 56866 ssh2
+2026-09-01T17:51:55 webserver01 sshd[10166]: Accepted password for svc_web from 192.168.1.10 port 56686 ssh2
+2026-09-01T17:52:16 webserver01 sshd[15571]: Accepted password for deploy from 10.0.0.8 port 57264 ssh2
+2026-09-01T17:54:21 webserver01 sshd[18841]: Accepted password for admin from 10.0.0.8 port 56018 ssh2
+2026-09-01T17:57:29 webserver01 sshd[7219]: Accepted password for svc_web from 192.168.1.10 port 54520 ssh2
+2026-09-01T17:58:36 webserver01 sshd[1699]: Accepted password for admin from 192.168.1.22 port 53475 ssh2
+2026-09-01T17:59:06 webserver01 sshd[19500]: Accepted password for deploy from 10.0.0.8 port 52063 ssh2
+2026-09-01T18:00:56 webserver01 sshd[8076]: Accepted password for jsmith from 192.168.1.10 port 53394 ssh2
+2026-09-01T18:03:00 webserver01 sshd[1092]: Accepted password for deploy from 10.0.0.8 port 59764 ssh2
+2026-09-01T18:05:26 webserver01 sshd[9213]: Accepted password for deploy from 192.168.1.14 port 58850 ssh2
+2026-09-01T18:07:00 webserver01 sshd[1486]: Accepted password for admin from 192.168.1.10 port 52159 ssh2
+2026-09-01T18:10:08 webserver01 sshd[1517]: Accepted password for jsmith from 192.168.1.14 port 55304 ssh2
+2026-09-01T18:11:42 webserver01 sshd[14794]: Accepted password for admin from 10.0.0.8 port 52076 ssh2
+2026-09-01T18:16:16 webserver01 sshd[15689]: Accepted password for admin from 192.168.1.10 port 57802 ssh2
+2026-09-01T18:19:26 webserver01 sshd[8259]: Accepted password for svc_web from 192.168.1.10 port 58254 ssh2
+2026-09-01T18:19:53 webserver01 sshd[2993]: Accepted password for svc_web from 10.0.0.8 port 50510 ssh2
+2026-09-01T18:24:03 webserver01 sshd[17065]: Accepted password for svc_web from 192.168.1.22 port 51768 ssh2
+2026-09-01T18:27:55 webserver01 sshd[5860]: Accepted password for admin from 192.168.1.10 port 55277 ssh2
+2026-09-01T18:28:33 webserver01 sshd[18968]: Accepted password for backup from 192.168.1.14 port 59590 ssh2
+2026-09-01T18:31:24 webserver01 sshd[10663]: Accepted password for jsmith from 192.168.1.22 port 58692 ssh2
+2026-09-01T18:35:21 webserver01 sshd[19066]: Accepted password for admin from 192.168.1.22 port 51874 ssh2
+2026-09-01T18:37:16 webserver01 sshd[14559]: Accepted password for svc_web from 192.168.1.22 port 53743 ssh2
+2026-09-01T18:40:14 webserver01 sshd[4115]: Accepted password for svc_web from 192.168.1.22 port 56815 ssh2
+2026-09-01T18:42:59 webserver01 sshd[13265]: Accepted password for backup from 192.168.1.22 port 54176 ssh2
+2026-09-01T18:44:22 webserver01 sshd[3797]: Accepted password for admin from 192.168.1.22 port 51494 ssh2
+2026-09-01T18:45:14 webserver01 sshd[5263]: Accepted password for admin from 192.168.1.22 port 56105 ssh2
+2026-09-01T18:50:03 webserver01 sshd[19405]: Accepted password for jsmith from 192.168.1.10 port 59201 ssh2
+2026-09-01T18:52:56 webserver01 sshd[14858]: Accepted password for svc_web from 192.168.1.10 port 55793 ssh2
+2026-09-01T18:53:27 webserver01 sshd[12522]: Accepted password for jsmith from 10.0.0.8 port 55119 ssh2
+2026-09-01T18:54:25 webserver01 sshd[8348]: Accepted password for deploy from 192.168.1.14 port 57900 ssh2
+2026-09-01T18:55:25 webserver01 sshd[4764]: Accepted password for jsmith from 10.0.0.8 port 56022 ssh2
+2026-09-01T18:57:52 webserver01 sshd[19243]: Accepted password for svc_web from 192.168.1.14 port 59190 ssh2
+2026-09-01T18:58:10 webserver01 sshd[9954]: Accepted password for admin from 10.0.0.8 port 52955 ssh2
+2026-09-01T19:00:53 webserver01 sshd[6944]: Accepted password for backup from 10.0.0.8 port 50100 ssh2
+2026-09-01T19:02:11 webserver01 sshd[2004]: Accepted password for admin from 192.168.1.22 port 52324 ssh2
+2026-09-01T19:03:02 webserver01 sshd[15865]: Accepted password for svc_web from 192.168.1.14 port 56878 ssh2
+2026-09-01T19:06:01 webserver01 sshd[11629]: Accepted password for backup from 192.168.1.14 port 55105 ssh2
+2026-09-01T19:10:56 webserver01 sshd[6158]: Accepted password for admin from 192.168.1.10 port 52549 ssh2
+2026-09-01T19:11:26 webserver01 sshd[14894]: Accepted password for backup from 192.168.1.10 port 57259 ssh2
+2026-09-01T19:15:39 webserver01 sshd[8063]: Accepted password for svc_web from 192.168.1.22 port 54475 ssh2
+2026-09-01T19:20:06 webserver01 sshd[4633]: Accepted password for backup from 192.168.1.10 port 57043 ssh2
+2026-09-01T19:22:36 webserver01 sshd[2488]: Accepted password for jsmith from 192.168.1.22 port 55053 ssh2
+2026-09-01T19:24:33 webserver01 sshd[1251]: Accepted password for jsmith from 192.168.1.22 port 50897 ssh2
+2026-09-01T19:26:22 webserver01 sshd[9372]: Accepted password for deploy from 10.0.0.8 port 52248 ssh2
+2026-09-01T19:28:55 webserver01 sshd[17298]: Accepted password for admin from 10.0.0.8 port 50126 ssh2
+2026-09-01T19:32:40 webserver01 sshd[18451]: Accepted password for deploy from 192.168.1.14 port 56229 ssh2
+2026-09-01T19:34:42 webserver01 sshd[2386]: Accepted password for admin from 10.0.0.8 port 56505 ssh2
+2026-09-01T19:38:30 webserver01 sshd[11258]: Accepted password for svc_web from 192.168.1.10 port 51275 ssh2
+2026-09-01T19:43:29 webserver01 sshd[14686]: Accepted password for jsmith from 192.168.1.22 port 56626 ssh2
+2026-09-01T19:46:02 webserver01 sshd[11642]: Accepted password for svc_web from 192.168.1.10 port 50341 ssh2
+2026-09-01T19:47:34 webserver01 sshd[15310]: Accepted password for backup from 192.168.1.22 port 51443 ssh2
+2026-09-01T19:48:33 webserver01 sshd[14121]: Accepted password for svc_web from 192.168.1.14 port 59648 ssh2
+2026-09-01T19:53:06 webserver01 sshd[12125]: Accepted password for svc_web from 192.168.1.10 port 55083 ssh2
+2026-09-01T19:55:04 webserver01 sshd[17727]: Accepted password for deploy from 10.0.0.8 port 51251 ssh2
+2026-09-01T19:56:07 webserver01 sshd[5839]: Accepted password for backup from 192.168.1.14 port 55752 ssh2
+2026-09-01T19:58:12 webserver01 sshd[7464]: Accepted password for deploy from 192.168.1.10 port 54193 ssh2
+2026-09-01T19:59:45 webserver01 sshd[17191]: Accepted password for admin from 192.168.1.14 port 52902 ssh2
+2026-09-01T20:03:47 webserver01 sshd[11359]: Accepted password for jsmith from 192.168.1.22 port 55295 ssh2
+2026-09-01T20:05:09 webserver01 sshd[15490]: Accepted password for admin from 192.168.1.22 port 57682 ssh2
+2026-09-01T20:07:49 webserver01 sshd[12532]: Accepted password for jsmith from 10.0.0.8 port 50920 ssh2
+2026-09-01T20:12:13 webserver01 sshd[15808]: Accepted password for backup from 192.168.1.10 port 57565 ssh2
+2026-09-01T20:12:37 webserver01 sshd[3514]: Accepted password for backup from 192.168.1.10 port 54703 ssh2
+2026-09-01T20:13:28 webserver01 sshd[19163]: Accepted password for svc_web from 192.168.1.22 port 59508 ssh2
+2026-09-01T20:13:54 webserver01 sshd[11535]: Accepted password for jsmith from 192.168.1.22 port 53084 ssh2
+2026-09-01T20:18:02 webserver01 sshd[4391]: Accepted password for admin from 192.168.1.14 port 57381 ssh2
+2026-09-01T20:21:02 webserver01 sshd[2282]: Accepted password for jsmith from 192.168.1.10 port 52827 ssh2
+2026-09-01T20:23:13 webserver01 sshd[18129]: Accepted password for svc_web from 192.168.1.22 port 58586 ssh2
+2026-09-01T20:24:39 webserver01 sshd[13694]: Accepted password for backup from 10.0.0.8 port 54634 ssh2
+2026-09-01T20:28:13 webserver01 sshd[11965]: Accepted password for jsmith from 10.0.0.8 port 50857 ssh2
+2026-09-01T20:28:51 webserver01 sshd[13666]: Accepted password for admin from 10.0.0.8 port 59141 ssh2
+2026-09-01T20:31:21 webserver01 sshd[11923]: Accepted password for jsmith from 10.0.0.8 port 52463 ssh2
+2026-09-01T20:32:07 webserver01 sshd[13843]: Accepted password for backup from 192.168.1.14 port 55082 ssh2
+2026-09-01T20:33:18 webserver01 sshd[13343]: Accepted password for backup from 192.168.1.10 port 59157 ssh2
+2026-09-01T20:36:11 webserver01 sshd[14874]: Accepted password for jsmith from 192.168.1.14 port 51531 ssh2
+2026-09-01T20:40:36 webserver01 sshd[11120]: Accepted password for admin from 10.0.0.8 port 55940 ssh2
+2026-09-01T20:42:13 webserver01 sshd[7291]: Accepted password for backup from 192.168.1.14 port 57967 ssh2
+2026-09-01T20:44:13 webserver01 sshd[10692]: Accepted password for deploy from 192.168.1.14 port 51264 ssh2
+2026-09-01T20:45:09 webserver01 sshd[13344]: Accepted password for backup from 192.168.1.10 port 52147 ssh2
+2026-09-01T20:46:32 webserver01 sshd[15341]: Accepted password for deploy from 192.168.1.14 port 52712 ssh2
+2026-09-01T20:46:59 webserver01 sshd[15555]: Accepted password for backup from 192.168.1.22 port 53891 ssh2
+2026-09-01T20:49:29 webserver01 sshd[8837]: Accepted password for deploy from 192.168.1.22 port 58749 ssh2
+2026-09-01T20:52:12 webserver01 sshd[19691]: Accepted password for deploy from 192.168.1.22 port 56026 ssh2
+2026-09-01T20:56:02 webserver01 sshd[17479]: Accepted password for backup from 192.168.1.22 port 56256 ssh2
+2026-09-01T21:00:37 webserver01 sshd[5535]: Accepted password for deploy from 192.168.1.22 port 53271 ssh2
+2026-09-01T21:02:50 webserver01 sshd[19171]: Accepted password for svc_web from 192.168.1.10 port 56081 ssh2
+2026-09-01T21:03:47 webserver01 sshd[6253]: Accepted password for backup from 192.168.1.10 port 51374 ssh2
+2026-09-01T21:06:11 webserver01 sshd[15335]: Accepted password for jsmith from 192.168.1.22 port 52414 ssh2
